@@ -5,13 +5,16 @@ import com.study.festlib.repository.FestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class FestService {
+public class FestService{
 
     @Autowired
     private FestRepository festRepository;
 
-    public Festival festDetail(String FESTA_ID){
-        return festRepository.selectOneFest(FESTA_ID);
+
+    public Festival selectOneFest(String festa_id) {
+        return festRepository.selectOneFest(festa_id);
     }
 }

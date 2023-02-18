@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 
 @Configuration
@@ -18,14 +19,22 @@ public class SpringConfig {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 
+//    @Bean
+//    public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
+//        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+//        sqlSessionFactoryBean.setDataSource(dataSource);
+//        sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:/mapper/**/*.xml"));
+//
+//        sqlSessionFactoryBean.setConfiguration(mybatisConfig());
+//        return sqlSessionFactoryBean.getObject();
+//    }
+
     @Bean
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
-        sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:/mapper/**/*.xml"));
-
-        sqlSessionFactoryBean.setConfiguration(mybatisConfig());
+        sqlSessionFactoryBean.setMapperLocations(
+                new PathMatchingResourcePatternResolver().getResources("classpath:/mapper/*.xml"));
         return sqlSessionFactoryBean.getObject();
     }
-
 }

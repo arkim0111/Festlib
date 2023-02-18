@@ -19,7 +19,7 @@ public class FestServiceTest {
 
     @Test
     void festDetail(){
-        Festival festival = festService.festDetail("Jazz");
+        Festival festival = festService.selectOneFest("Jazz");
         log.info("festival : {}", festival);
     }
 }

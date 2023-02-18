@@ -4,11 +4,14 @@
 
 <mapper namespace="com.study.festlib.repository.FestRepository">
 
-    <select id="selectOneFest" resultType="com.study.festlib.domain.Festival">
-        SELECT
-        FESTA_ID, FESTA_YEAR, FESTA_NAME, FESTA_ADDR, FESTA_DATE, FESTA_CELEB
+    <select id="selectOneFest" parameterType="String" resultType="com.study.festlib.domain.Festival">
+        SELECT FESTA_ID, FESTA_YEAR, FESTA_NAME, FESTA_ADDR, FESTA_DATE, FESTA_CELEB
         FROM FESTIVAL
-        WHERE FESTA_ID = #{FESTA_ID};
+        WHERE FESTA_ID = #{FESTA_ID}
     </select>
 
+    <select id="selectFestivals" resultType="com.study.festlib.domain.Festival">
+        SELECT FESTA_ID, FESTA_YEAR
+        FROM FESTIVAL
+    </select>
 </mapper>
