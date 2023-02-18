@@ -4,10 +4,10 @@
 
 <mapper namespace="com.study.festlib.repository.FestRepository">
 
-    <select id="getBoardList" resultType="com.study.festlib.domain.Festival">
+    <select id="selectOneFest" resultType="com.study.festlib.domain.Festival">
         SELECT
-        *
-        FROM board
+        FESTA_ID, FESTA_YEAR, FESTA_NAME, FESTA_ADDR, FESTA_DATE, FESTA_CELEB
+        FROM FESTIVAL
         WHERE FESTA_ID = #{FESTA_ID};
     </select>
 
