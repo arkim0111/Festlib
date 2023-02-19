@@ -6,8 +6,8 @@
 
     <select id="getBoardList" resultType="com.study.festlib.domain.Board">
         SELECT
-        *
-        FROM board;
+        BOARD_IDX, MEM_IDX, BOARD_TITLE, BOARD_CONTENT, BOARD_DATE, FESTA_ID
+        FROM BOARD
     </select>
 
 </mapper>
