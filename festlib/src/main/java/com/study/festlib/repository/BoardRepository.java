@@ -9,5 +9,5 @@ import java.util.List;
 @Mapper
 public interface BoardRepository {
 
-    List<Board> getBoardList();
+    List<Board> getFestBoardList();
 }

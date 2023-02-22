@@ -15,7 +15,7 @@ public class BoardService {
     @Autowired
     private BoardRepository boardRepository;
 
-    public List<Board> boardList() {
-        return boardRepository.getBoardList();
+    public List<Board> getFestBoardList() {
+        return boardRepository.getFestBoardList();
     }
 }
