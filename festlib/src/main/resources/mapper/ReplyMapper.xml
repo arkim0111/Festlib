@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.festlib.repository.ReplyRepository">
+
+    <!-- 각 페스티벌의 댓글 리스트 조회  -->
+    <!-- 게시글 idx에 맞는 댓글 리스트가 쭉 나옴  -->
+    <select id="getReplyList" resultType="com.study.festlib.domain.Reply">
+        SELECT
+            REPLY_BOARD_IDX, REPLY_IDX, REPLY_MEM_ID, REPLY_CONTENT, REPLY_DATE, REPLY_FESTA_ID
+        FROM
+            REPLY
+        WHERE
+            REPLY_BOARD_IDX = #{REPLY_BOARD_IDX}
+        AND
+            REPLY_FESTA_ID = #{REPLY_FESTA_ID}
+    </select>
+
+    <!-- 댓글 작성 기능  -->
+    <!-- 게시글 idx에 맞는 댓글 작성 기능 -->
+    <insert id="insertReply" parameterType="hashmap">
+        INSERT INTO
+        REPLY
+            (
+            REPLY_BOARD_IDX,
+            REPLY_IDX,
+            REPLY_MEM_ID,
+            REPLY_CONTENT,
+            REPLY_DATE,
+            REPLY_FESTA_ID
+            )
+        VALUES
+            (
+            REPLY_IDX_SEQ.NEXTVAL,
+            #{REPLY_IDX},
+            #{REPLY_MEM_ID},
+            #{REPLY_CONTENT},
+            #{REPLY_DATE},
+            #{REPLY_FESTA_ID}
+            )
+    </insert>
+
+    <!-- 댓글 삭제 기능  -->
+    <!-- 댓글 idx에 맞는 댓글 삭제 기능 -->
+    <delete id="deleteReply" parameterType="hashmap">
+        DELETE FROM
+            REPLY
+        WHERE
+            REPLY_IDX = #{REPLY_IDX}
+        AND
+            REPLY_FESTA_ID = #{REPLY_FESTA_ID}
+    </delete>
+
+    <!-- 댓글 수정 기능  -->
+    <update id = "updateOneReply" parameterType="hashmap">
+        UPDATE
+            REPLY
+        SET
+            REPLY_CONTENT = {REPLY_CONTENT}
+        WHERE
+            REPLY_BOARD_IDX = #{REPLY_BOARD_IDX}
+        AND
+            REPLY_MEM_ID = #{REPLY_MEM_ID}
+        AND
+            REPLY_FESTA_ID = #{REPLY_FESTA_ID}
+    </update>
+
+    <!-- (마이 페이지) 내가 쓴 게시글 조회  -->
+    <select id="getMyReply" resultType="com.study.festlib.domain.REPLY">
+        SELECT
+            REPLY_BOARD_IDX, REPLY_IDX, REPLY_MEM_ID, REPLY_CONTENT, REPLY_DATE, REPLY_FESTA_ID
+        FROM
+            REPLY
+        WHERE
+            REPLY_MEM_ID = #{REPLY_MEM_ID}
+    </select>
+
+
+</mapper>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.festlib.repository.BoardRepository">
+
+    <!-- 각 페스티벌의 게시글 리스트 조회  -->
+    <!-- 페스티벌 아이디에 맞는 게시글 리스트가 쭉 나옴  -->
+    <select id="getFestBoardList" resultType="com.study.festlib.domain.Board">
+        SELECT
+            BOARD_IDX, BOARD_MEM_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_DATE, BOARD_FESTA_ID
+        FROM
+            BOARD
+        WHERE
+            BOARD_FESTA_ID = #{BOARD_FESTA_ID}
+    </select>
+
+    <!-- 게시글 작성 기능  -->
+    <!-- 페스티벌 아이디에 맞는 게시글 작성 기능 (작성자는 페스티벌 아이디를 모름) -->
+    <insert id="insertBoard" parameterType="hashmap">
+        INSERT INTO
+        BOARD
+            (
+            BOARD_IDX,
+            BOARD_MEM_ID,
+            BOARD_TITLE,
+            BOARD_COMMENT,
+            BOARD_DATE,
+            BOARD_FESTA_ID
+            )
+        VALUES
+            (
+            BOARD_IDX_SEQ.NEXTVAL,
+            #{BOARD_MEM_ID},
+            #{BOARD_TITLE},
+            #{BOARD_COMMENT},
+            #{BOARD_DATE},
+            #{BOARD_FESTA_ID}
+            )
+    </insert>
+
+    <!-- 게시글 상세 보기  -->
+    <!-- 페스티벌 아이디에 맞는 게시글 상세 보기  -->
+    <select id = "selectOneBoard" resultType="com.study.festlib.domain.board">
+        SELECT
+            BOARD_IDX, BOARD_MEM_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_DATE, BOARD_FESTA_ID
+        FROM
+            BOARD
+        WHERE
+            BOARD_FESTA_ID = #{BOARD_FESTA_ID}
+        AND
+            BOARD_IDX = #{BOARD_IDX}
+    </select>
+
+    <!-- 게시글 수정 기능  -->
+    <update id = "updateOneBoard" parameterType="hashmap">
+        UPDATE
+            BOARD
+        SET
+            BOARD_TITLE = {BOARD_TITLE}
+            BOARD_COMMENT = {BOARD_COMMENT}
+        WHERE
+            BOARD_IDX = #{BOARD_IDX}
+        AND
+            BOARD_FESTA_ID = #{BOARD_FESTA_ID}
+    </update>
+
+    <!-- 게시글 수정 폼  -->
+    <select id = "updateOneBoardForm" parameterType="hashmap">
+        SELECT
+            BOARD_IDX, BOARD_MEM_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_DATE
+        FROM
+            BOARD
+        WHERE
+            BOARD_IDX = #{BOARD_IDX}
+        AND
+            BOARD_MEM_ID = #{BOARD_MEM_ID}
+        AND
+            BOARD_FESTA_ID = #{BOARD_FESTA_ID}
+    </select>
+
+    <!-- (관리자 페이지) 모든 게시글 리스트 조회  -->
+    <select id="getAllBoardList" resultType="com.study.festlib.domain.Board">
+        SELECT
+            BOARD_IDX, BOARD_MEM_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_DATE, BOARD_FESTA_ID
+        FROM
+            BOARD
+    </select>
+
+    <!-- (마이 페이지) 내가 쓴 게시글 조회  -->
+    <select id="getMyBoard" resultType="com.study.festlib.domain.Board">
+        SELECT
+            BOARD_IDX, BOARD_MEM_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_DATE, BOARD_FESTA_ID
+        FROM
+            BOARD
+        WHERE
+            BOARD_MEM_ID = #{BOARD_MEM_ID}
+    </select>
+</mapper>

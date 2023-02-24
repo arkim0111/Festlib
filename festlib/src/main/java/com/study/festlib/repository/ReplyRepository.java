@@ -1,4 +1,4 @@
 package com.study.festlib.repository;
 
-public interface MemberRepository {
+public interface ReplyRepository {
 }
