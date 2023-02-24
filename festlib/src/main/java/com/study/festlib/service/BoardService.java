@@ -15,7 +15,12 @@ public class BoardService {
     @Autowired
     private BoardRepository boardRepository;
 
-    public List<Board> getFestBoardList() {
+    public List<Board> getFestBoardList() { // 게시글 리스트 조회
         return boardRepository.getFestBoardList();
     }
+
+    public List<Board> getAllBoardList() { // 게시글 리스트 조회
+        return boardRepository.getAllBoardList();
+    }
+
 }

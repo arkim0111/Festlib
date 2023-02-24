@@ -21,10 +21,17 @@ public class BoardController {
         this.boardService = boardService;
     }
 
-    @GetMapping("/board")
+    @GetMapping("/board") // 게시글 리스트 조회
     public String Board(Model model) {
         List<Board> list = boardService.getFestBoardList();
         model.addAttribute("boardList", list);
         return "board/board";
+    }
+
+    @GetMapping("/boardList") // (관리자 페이지) 모든 게시글 리스트 조회
+    public String boardList(Model model) {
+        List<Board> list = boardService.getAllBoardList();
+        model.addAttribute("boardList", list);
+        return "board/boardList";
     }
 }
