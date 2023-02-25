@@ -6,7 +6,7 @@
 
     <!-- 각 페스티벌의 게시글 리스트 조회  -->
     <!-- 페스티벌 아이디에 맞는 게시글 리스트가 쭉 나옴  -->
-    <select id="getFestBoardList" resultType="com.study.festlib.domain.Board">
+    <select id="getFestBoardList" parameterType="String" resultType="com.study.festlib.domain.Board">
         SELECT
             BOARD_IDX, BOARD_MEM_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_DATE, BOARD_FESTA_ID
         FROM
@@ -17,7 +17,7 @@
 
     <!-- 게시글 작성 기능  -->
     <!-- 페스티벌 아이디에 맞는 게시글 작성 기능 (작성자는 페스티벌 아이디를 모름) -->
-    <insert id="insertBoard" parameterType="hashmap">
+    <insert id="insertOneBoard" parameterType="hashmap">
         INSERT INTO
         BOARD
             (
@@ -41,7 +41,7 @@
 
     <!-- 게시글 상세 보기  -->
     <!-- 페스티벌 아이디에 맞는 게시글 상세 보기  -->
-    <select id = "selectOneBoard" resultType="com.study.festlib.domain.board">
+    <select id = "selectOneBoard" parameterType="hashmap" resultType="com.study.festlib.domain.board">
         SELECT
             BOARD_IDX, BOARD_MEM_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_DATE, BOARD_FESTA_ID
         FROM
@@ -88,12 +88,22 @@
     </select>
 
     <!-- (마이 페이지) 내가 쓴 게시글 조회  -->
-    <select id="getMyBoard" resultType="com.study.festlib.domain.Board">
+    <select id="getMyBoard" parameterType="String" resultType="com.study.festlib.domain.Board">
         SELECT
             BOARD_IDX, BOARD_MEM_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_DATE, BOARD_FESTA_ID
         FROM
             BOARD
         WHERE
             BOARD_MEM_ID = #{BOARD_MEM_ID}
+    </select>
+
+    <!-- 제목으로 게시글 찾기  -->
+    <select id="getTitle" parameterType="String" resultMap="com.study.festlib.domain.Board">
+        SELECT
+            BOARD_IDX
+        FROM
+            BOARD
+        WHERE
+            BOARD_TITLE = #{BOARD_TITLE}
     </select>
 </mapper>

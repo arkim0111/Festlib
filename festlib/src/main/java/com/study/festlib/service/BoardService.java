@@ -23,9 +23,12 @@ public class BoardService {
         return boardRepository.getAllBoardList();
     }
 
-    public Long insertBoard(Board board) { // 게시글 작성 기능
-        boardRepository.save(board);
-        return board.getBoard_idx();
+    public void insertBoard(Board board) throws Exception  { // 게시글 작성 기능
+        boardRepository.insertOneBoard(board);
+    }
+
+    public void modifyBoard(Board board) throws Exception  { // 게시글 수정 기능
+        boardRepository.updateOneBoard(board);
     }
 
 

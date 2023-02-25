@@ -8,10 +8,7 @@ public class BoardServiceTest {
     @Test
     public void 게시글작성() throws Exception {
         // given
-        Board board = new Board();
-        board.setBoard_festa_id("sjf");
         // when
-
         // then
     }
 }

@@ -42,19 +42,43 @@ public class BoardController {
     }
 
     @GetMapping("/{fno}/board/writeForm") // 게시글 작성 폼
-    public String boardForm(@PathVariable("fno") String fno) {
-        Festival festival = festService.selectOneFest(fno); // fno 가져옴
-        return "board/writeBoardForm";
+    public String putForm(@PathVariable("fno") String fno) {
+
+        Board board = new Board();
+        board.setBoard_festa_id(fno);
+        return "board/putBoardForm";
     }
 
     @PostMapping("/{fno}/board/put") // 게시글 작성 기능
-    public String putBoard(@PathVariable("fno") String fno, BoardForm form) {
-        Festival festival = festService.selectOneFest(fno); // fno 가져옴
+    public String putBoard(@PathVariable("fno") String fno, BoardForm form) throws Exception {
+
         Board board = new Board();
         board.setBoard_title(form.getBoard_title());
         board.setBoard_content(form.getBoard_content());
         board.setBoard_festa_id(fno);
         boardService.insertBoard(board);
+        return "redirect:/{fno}/board/boardList";
+    }
+
+    @GetMapping("/{fno}/board/{bno}/modifyForm") // 게시글 수정 폼
+    public String modifyForm(@PathVariable("fno") String fno, @PathVariable("bno") Long bno) {
+
+        Board board = new Board();
+        board.setBoard_festa_id(fno);
+        board.setBoard_idx(bno);
+        return "board/modifyBoardForm";
+    }
+
+    @PostMapping("/{fno}/board/{bno}/modify") // 게시글 수정 기능
+    public String modifyBoard(@PathVariable("fno") String fno, @PathVariable("bno") Long bno, BoardForm form) throws Exception {
+
+        Board board = new Board();
+        board.setBoard_title(form.getBoard_title());
+        board.setBoard_content(form.getBoard_content());
+        board.setBoard_festa_id(fno);
+        board.setBoard_idx(bno);
+
+        boardService.modifyBoard(board);
         return "redirect:/{fno}/board/boardList";
     }
 }
