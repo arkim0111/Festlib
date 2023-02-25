@@ -23,4 +23,11 @@ public class BoardService {
         return boardRepository.getAllBoardList();
     }
 
+    public Long insertBoard(Board board) { // 게시글 작성 기능
+        boardRepository.save(board);
+        return board.getBoard_idx();
+    }
+
+
+
 }
