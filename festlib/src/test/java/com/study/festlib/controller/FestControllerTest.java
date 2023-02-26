@@ -1,8 +1,6 @@
 package com.study.festlib.controller;
 
 import com.study.festlib.domain.Festival;
-import com.study.festlib.repository.FestRepository;
-import com.study.festlib.service.FestService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class FestControllerTest {
 
     @Autowired
-    private FestRepository festRepository;
-    private FestService festService;
+    private FestController festController;
 
     @Test
     void testRequestFest(){
@@ -29,9 +26,9 @@ public class FestControllerTest {
         festival.setFESTA_TICKET_DATE("2023-02-02");
         festival.setFESTA_TICKET_ADDR("http://ticket.interpark.com");
 
-        festService.requestFest(festival);
+        festController.requestFest(festival);
 
-        Festival findFestival = festService.selectOneFest("Rock");
+        Festival findFestival = festController.festDetail("Rock");
         log.info("인서트 정보:  "+findFestival);
     }
 }

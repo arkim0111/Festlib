@@ -98,7 +98,7 @@
     </select>
 
     <!-- 제목으로 게시글 찾기  -->
-    <select id="getTitle" parameterType="String" resultMap="com.study.festlib.domain.Board">
+    <select id="getTitle" parameterType="String" resultType="com.study.festlib.domain.Board">
         SELECT
             BOARD_IDX
         FROM
