@@ -81,4 +81,5 @@ public class BoardController {
         boardService.modifyBoard(board);
         return "redirect:/{fno}/board/boardList";
     }
+
 }
