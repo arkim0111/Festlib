@@ -14,7 +14,14 @@ public class FestService{
     private FestRepository festRepository;
 
 
+    //페스티벌 정보 select
     public Festival selectOneFest(String festa_id) {
         return festRepository.selectOneFest(festa_id);
+    }
+
+
+    //페스티벌 정보 insert
+    public void requestFest(Festival festival){
+        festRepository.insertFestival(festival);
     }
 }

@@ -41,7 +41,7 @@
 
     <!-- 게시글 상세 보기  -->
     <!-- 페스티벌 아이디에 맞는 게시글 상세 보기  -->
-    <select id = "selectOneBoard" parameterType="hashmap" resultType="com.study.festlib.domain.board">
+    <select id = "selectOneBoard" parameterType="hashmap" resultType="com.study.festlib.domain.Board">
         SELECT
             BOARD_IDX, BOARD_MEM_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_DATE, BOARD_FESTA_ID
         FROM

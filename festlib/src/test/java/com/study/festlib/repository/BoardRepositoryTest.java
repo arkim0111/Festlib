@@ -15,7 +15,7 @@ public class BoardRepositoryTest {
         board.setBoard_title("title1");
         board.setBoard_content("content1");
 
-        repository.insertBoard(board);
+        //repository.insertBoard(board);
 
         System.out.println(board);
     }

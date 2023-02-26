@@ -12,5 +12,5 @@ public interface FestRepository {
 
     List<Festival> selectFestivals();
 
-    Festival insertFestival(Festival festival);
+    public void insertFestival(Festival festival);
 }

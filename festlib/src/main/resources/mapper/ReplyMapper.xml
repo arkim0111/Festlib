@@ -67,7 +67,7 @@
     </update>
 
     <!-- (마이 페이지) 내가 쓴 게시글 조회  -->
-    <select id="getMyReply" resultType="com.study.festlib.domain.REPLY">
+    <select id="getMyReply" resultType="com.study.festlib.domain.Reply">
         SELECT
             REPLY_BOARD_IDX, REPLY_IDX, REPLY_MEM_ID, REPLY_CONTENT, REPLY_DATE, REPLY_FESTA_ID
         FROM

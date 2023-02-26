@@ -27,8 +27,8 @@ public class FestController {
     //페스티벌 요청
     @ResponseBody
     @PostMapping(value="/fest/request")
-    public Festival requestFest (Festival festival){
-        return festService.requestFest(festival);
+    public void requestFest (Festival festival){
+        festService.requestFest(festival);
     }
 
 }

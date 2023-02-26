@@ -21,7 +21,18 @@ public class BoardRepositoryImpl implements BoardRepository {
     public List<Board> getAllBoardList() {
         return null;
     }
+
     @Override
+    public void insertOneBoard(Board board) throws Exception {
+
+    }
+
+    @Override
+    public void updateOneBoard(Board board) throws Exception {
+
+    }
+
+/*    @Override
     public void insertBoard(Board board) {
         board.setBoard_idx(++sequence); // board_idx에 sequence 부여
 
@@ -36,5 +47,5 @@ public class BoardRepositoryImpl implements BoardRepository {
     @Override
     public void updateBoard(Board board) {
 
-    }
+    }*/
 }
