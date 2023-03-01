@@ -34,7 +34,7 @@
             #{BOARD_MEM_ID},
             #{BOARD_TITLE},
             #{BOARD_COMMENT},
-            #{BOARD_DATE},
+            now(),
             #{BOARD_FESTA_ID}
             )
     </insert>
