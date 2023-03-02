@@ -47,7 +47,7 @@
         FROM
             BOARD
         WHERE
-            BOARD_FESTA_ID = #{BOARD_FESTA_ID}
+            BOARD_IDX = #{BOARD_IDX}
 
     </select>
 
@@ -59,7 +59,7 @@
             BOARD_TITLE = {BOARD_TITLE}
             BOARD_COMMENT = {BOARD_COMMENT}
         WHERE
-            BOARD_FESTA_ID = #{BOARD_FESTA_ID}
+            BOARD_IDX = #{BOARD_IDX}
     </update>
 
     <!-- 게시글 수정 폼  -->
@@ -69,9 +69,8 @@
         FROM
             BOARD
         WHERE
-            BOARD_MEM_ID = #{BOARD_MEM_ID}
-        AND
-            BOARD_FESTA_ID = #{BOARD_FESTA_ID}
+            BOARD_IDX = #{BOARD_IDX}
+
     </select>
 
     <!-- (관리자 페이지) 모든 게시글 리스트 조회  -->
@@ -100,5 +99,20 @@
             BOARD
         WHERE
             BOARD_TITLE = #{BOARD_TITLE}
+    </select>
+
+    <!-- 전체 게시글 리스트 삭제 (테스트를 위함)  -->
+    <delete id="deleteAllBoard">
+        DELETE
+        FROM
+            BOARD
+    </delete>
+
+    <!-- 전체 게시글 개수 조회 (테스트를 위함) -->
+    <select id="getCountBoard" resultType="int">
+        SELECT
+            COUNT(*)
+        FROM
+            BOARD
     </select>
 </mapper>

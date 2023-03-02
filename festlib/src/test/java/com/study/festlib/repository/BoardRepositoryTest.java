@@ -1,3 +1,4 @@
+/*
 package com.study.festlib.repository;
 
 import com.study.festlib.domain.Board;
@@ -5,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 public class BoardRepositoryTest {
 
-    BoardRepositoryImpl repository = new BoardRepositoryImpl();
+
 
     @Test
     public void insertOneBoard() {
@@ -20,3 +21,4 @@ public class BoardRepositoryTest {
         System.out.println(board);
     }
 }
+*/

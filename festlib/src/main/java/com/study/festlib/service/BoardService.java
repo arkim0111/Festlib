@@ -6,31 +6,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
-@Transactional
-public class BoardService {
+public interface BoardService {
 
-    @Autowired
-    private BoardRepository boardRepository;
+    // 게시글 작성 기능
+    void insertBoard(Board board) throws Exception;
 
-    public List<Board> getFestBoardList() { // 게시글 리스트 조회
-        return boardRepository.getFestBoardList();
-    }
+    // 게시글 상세 보기
+    Board selectOneBoard(String fno, String bno) throws Exception ;
 
-    public List<Board> getAllBoardList() { // 게시글 리스트 조회
-        return boardRepository.getAllBoardList();
-    }
+    // 전체 게시글 리스트 삭제
+    List<Board> deleteAllBoard() throws Exception;
 
-    public void insertBoard(Board board) throws Exception  { // 게시글 작성 기능
-        boardRepository.insertOneBoard(board);
-    }
-
-    public void modifyBoard(Board board) throws Exception  { // 게시글 수정 기능
-        boardRepository.updateOneBoard(board);
-    }
-
-
-
+    // 전체 게시글 개수 조회
+    int getCountBoard() throws Exception;
 }
