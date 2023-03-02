@@ -30,4 +30,9 @@ public class FestController {
         festService.requestFest(festival);
     }
 
+
+    //관리자
+    //페스티벌 수정
+    //페스티벌 등록
+
 }
