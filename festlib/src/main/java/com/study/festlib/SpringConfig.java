@@ -19,16 +19,6 @@ public class SpringConfig {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 
-//    @Bean
-//    public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
-//        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-//        sqlSessionFactoryBean.setDataSource(dataSource);
-//        sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:/mapper/**/*.xml"));
-//
-//        sqlSessionFactoryBean.setConfiguration(mybatisConfig());
-//        return sqlSessionFactoryBean.getObject();
-//    }
-
     @Bean
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();

@@ -10,5 +10,7 @@ public interface FestRepository {
 
     Festival selectOneFest(String FESTA_ID);
 
-    public List<Festival> selectFestivals();
+    List<Festival> selectFestivals();
+
+    public void insertFestival(Festival festival);
 }
