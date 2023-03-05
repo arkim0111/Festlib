@@ -27,8 +27,24 @@ public class FestService{
 
     //관리자
     //등록된 페스티벌 리스트 select
-    public List<Festival> selectFestList(){
-        List<Festival> festivalList = festRepository.selectFestivals();
+    public List<Festival> festList(){
+        List<Festival> festivalList = festRepository.selectFestList();
         return festivalList;
+    }
+
+    //등록요청받은 페스티벌 리스트
+    public List<Festival> requestFestList(){
+        List<Festival> festivalList = festRepository.selectReqFestList();
+        return festivalList;
+    }
+
+    //페스티벌 정보 수정
+    public void festivalModify(Festival festival){
+        festRepository.updateFestival(festival);
+    }
+
+    //페스티벌 등록
+    public void festivalRegister(String fest_id){
+        festRepository.updateFestivalReg(fest_id);
     }
 }

@@ -35,13 +35,28 @@ public class FestController {
     //등록된 페스티벌 리스트
     @GetMapping(value = "/festList")
     public List<Festival> festList(){
-        List<Festival> festList = festService.selectFestList();
+        List<Festival> festList = festService.festList();
         return festList;
     }
 
 
     //등록요청받은 페스티벌 리스트
-    //페스티벌 수정
-    //페스티벌 등록 요청 수락
+    @GetMapping(value = "/requestFestList")
+    public List<Festival> requestFestList(){
+        List<Festival> reqFestList = festService.requestFestList();
+        return reqFestList;
+    }
 
+    //페스티벌 수정
+    @PostMapping(value = "/fest/{fno}/modify")
+    public void festivalModify(Festival festival){
+        festService.festivalModify(festival);
+    }
+
+    //페스티벌 등록 요청 수락
+    @ResponseBody
+    @PostMapping(value = "/fest/{fno}/register")
+    public void festivalRegister(@PathVariable("fno") String fno){
+        festService.festivalRegister(fno);
+    }
 }
