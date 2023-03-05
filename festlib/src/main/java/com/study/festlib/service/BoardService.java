@@ -9,10 +9,10 @@ public interface BoardService {
     void insertBoard(Board board) throws Exception;
 
     // 게시글 상세 보기
-    Board selectOneBoard(String board_festa_id, String board_idx) ;
+    Board selectOneBoard(String fno, String bno) ;
 
     // 전체 게시글 리스트 삭제
-    List<Board> deleteAllBoard() ;
+    void deleteAllBoard() ;
 
     // 전체 게시글 개수 조회
     int getCountBoard() ;

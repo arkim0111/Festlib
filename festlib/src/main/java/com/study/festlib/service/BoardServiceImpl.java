@@ -9,6 +9,7 @@ import java.util.List;
 
 @Service
 public class BoardServiceImpl implements BoardService{
+
     private BoardRepository boardRepository;
     @Autowired
     public BoardServiceImpl(BoardRepository boardRepository) {
@@ -18,17 +19,16 @@ public class BoardServiceImpl implements BoardService{
     @Override
     public void insertBoard(Board board) throws Exception {
         boardRepository.insertOneBoard(board);
-
     }
 
     @Override
-    public Board selectOneBoard(String board_festa_id, String board_idx) {
-        return boardRepository.selectOneBoard(board_festa_id, board_idx);
+    public Board selectOneBoard(String fno, String bno) {
+        return boardRepository.selectOneBoard(fno, bno);
     }
 
     @Override
-    public List<Board> deleteAllBoard() {
-        return boardRepository.deleteAllBoard();
+    public void deleteAllBoard() {
+        boardRepository.deleteAllBoard();
     }
 
     @Override

@@ -6,7 +6,7 @@
 
     <!-- 각 페스티벌의 게시글 리스트 조회  -->
     <!-- 페스티벌 아이디에 맞는 게시글 리스트가 쭉 나옴  -->
-    <select id="getFestBoardList" parameterType="String" resultType="Board">
+    <select id="getFestBoardList" parameterType="String" resultType="com.study.festlib.domain.Board">
         SELECT
             BOARD_IDX, BOARD_MEM_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_DATE, BOARD_FESTA_ID
         FROM
@@ -17,7 +17,7 @@
 
     <!-- 게시글 작성 기능  -->
     <!-- 페스티벌 아이디에 맞는 게시글 작성 기능 (작성자는 페스티벌 아이디를 모름) -->
-    <insert id="insertOneBoard" parameterType="Board">
+    <insert id="insertOneBoard" parameterType="com.study.festlib.domain.Board">
         INSERT INTO
         BOARD
             (
@@ -102,7 +102,7 @@
     </select>
 
     <!-- 전체 게시글 리스트 삭제 (테스트를 위함)  -->
-    <delete id="deleteAllBoard">
+    <delete id="deleteAllBoard" parameterType="int">
         DELETE
         FROM
             BOARD

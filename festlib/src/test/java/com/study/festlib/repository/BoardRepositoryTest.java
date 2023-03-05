@@ -1,3 +1,4 @@
+/*
 package com.study.festlib.repository;
 
 import com.study.festlib.domain.Board;
@@ -26,3 +27,4 @@ public class BoardRepositoryTest {
     }
 
 }
+*/

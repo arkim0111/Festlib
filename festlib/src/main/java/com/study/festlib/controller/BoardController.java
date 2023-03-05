@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/Festlib/fest")
+
 public class BoardController {
 
     private BoardService boardService;
@@ -18,7 +19,7 @@ public class BoardController {
         this.boardService = boardService;
     }
 
-/*
+    /*
     @GetMapping("/{fno}/board/writeForm") // 게시글 작성 폼
     public String putForm(@PathVariable("fno") String fno) {
         Board board = new Board();
