@@ -6,7 +6,7 @@
 
     <!-- 각 페스티벌의 게시글 리스트 조회  -->
     <!-- 페스티벌 아이디에 맞는 게시글 리스트가 쭉 나옴  -->
-    <select id="getFestBoardList" parameterType="String" resultType="com.study.festlib.domain.Board">
+    <select id="getFestBoardList" parameterType="String" resultType="Board">
         SELECT
             BOARD_IDX, BOARD_MEM_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_DATE, BOARD_FESTA_ID
         FROM
@@ -17,14 +17,14 @@
 
     <!-- 게시글 작성 기능  -->
     <!-- 페스티벌 아이디에 맞는 게시글 작성 기능 (작성자는 페스티벌 아이디를 모름) -->
-    <insert id="insertOneBoard" parameterType="hashmap">
+    <insert id="insertOneBoard" parameterType="Board">
         INSERT INTO
         BOARD
             (
             BOARD_IDX,
             BOARD_MEM_ID,
             BOARD_TITLE,
-            BOARD_COMMENT,
+            BOARD_CONTENT,
             BOARD_DATE,
             BOARD_FESTA_ID
             )
@@ -33,8 +33,8 @@
             BOARD_IDX_SEQ.NEXTVAL,
             #{BOARD_MEM_ID},
             #{BOARD_TITLE},
-            #{BOARD_COMMENT},
-            now(),
+            #{BOARD_CONTENT},
+            SYSDATE,
             #{BOARD_FESTA_ID}
             )
     </insert>
@@ -57,7 +57,7 @@
             BOARD
         SET
             BOARD_TITLE = {BOARD_TITLE}
-            BOARD_COMMENT = {BOARD_COMMENT}
+            BOARD_CONTENT = {BOARD_CONTENT}
         WHERE
             BOARD_IDX = #{BOARD_IDX}
     </update>
