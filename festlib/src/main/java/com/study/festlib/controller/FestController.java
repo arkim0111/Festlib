@@ -33,10 +33,13 @@ public class FestController {
 
     //관리자
     //등록된 페스티벌 리스트
-    @GetMapping(value = "/festLis")
+    @GetMapping(value = "/festList")
     public List<Festival> festList(){
-
+        List<Festival> festList = festService.selectFestList();
+        return festList;
     }
+
+
     //등록요청받은 페스티벌 리스트
     //페스티벌 수정
     //페스티벌 등록 요청 수락

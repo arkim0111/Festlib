@@ -17,8 +17,9 @@
     </insert>
 
     <select id="selectFestivals" resultType="com.study.festlib.domain.Festival">
-        SELECT FESTA_ID, FESTA_YEAR
+        SELECT *
         FROM FESTIVAL
+        WHERE FESTA_LEVEL = 1
     </select>
 
 

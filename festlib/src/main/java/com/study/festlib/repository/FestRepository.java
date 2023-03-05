@@ -16,6 +16,6 @@ public interface FestRepository {
 
     //관리자
     //모든 페스티벌 리스트
-    List<Festival> selectFestivals();
+    public List<Festival> selectFestivals();
 
 }

@@ -25,5 +25,10 @@ public class FestService{
         festRepository.insertFestival(festival);
     }
 
-
+    //관리자
+    //등록된 페스티벌 리스트 select
+    public List<Festival> selectFestList(){
+        List<Festival> festivalList = festRepository.selectFestivals();
+        return festivalList;
+    }
 }
