@@ -10,13 +10,16 @@
         WHERE FESTA_ID = #{FESTA_ID}
     </select>
 
-    <select id="selectFestivals" resultType="com.study.festlib.domain.Festival">
-        SELECT FESTA_ID, FESTA_YEAR
-        FROM FESTIVAL
-    </select>
 
     <insert id="insertFestival" parameterType="com.study.festlib.domain.Festival">
         INSERT INTO FESTIVAL (FESTA_ID, FESTA_YEAR, FESTA_NAME, FESTA_ADDR, FESTA_DATE, FESTA_CELEB, FESTA_TICKET_DATE, FESTA_TICKET_ADDR)
         VALUES(#{FESTA_ID}, #{FESTA_YEAR}, #{FESTA_NAME}, #{FESTA_ADDR}, #{FESTA_DATE}, #{FESTA_CELEB}, #{FESTA_TICKET_DATE}, #{FESTA_TICKET_ADDR})
     </insert>
+
+    <select id="selectFestivals" resultType="com.study.festlib.domain.Festival">
+        SELECT FESTA_ID, FESTA_YEAR
+        FROM FESTIVAL
+    </select>
+
+
 </mapper>

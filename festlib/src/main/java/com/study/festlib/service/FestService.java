@@ -20,8 +20,10 @@ public class FestService{
     }
 
 
-    //페스티벌 정보 insert
+    //페스티벌 등록 요청 insert
     public void requestFest(Festival festival){
         festRepository.insertFestival(festival);
     }
+
+
 }

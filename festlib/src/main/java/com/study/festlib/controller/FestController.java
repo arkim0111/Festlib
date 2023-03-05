@@ -24,7 +24,7 @@ public class FestController {
         return festival;
     }
 
-    //페스티벌 요청
+    //페스티벌 등록 요청
     @PostMapping(value="/fest/request")
     public void requestFest (Festival festival){
         festService.requestFest(festival);
@@ -32,7 +32,13 @@ public class FestController {
 
 
     //관리자
+    //등록된 페스티벌 리스트
+    @GetMapping(value = "/festLis")
+    public List<Festival> festList(){
+
+    }
+    //등록요청받은 페스티벌 리스트
     //페스티벌 수정
-    //페스티벌 등록
+    //페스티벌 등록 요청 수락
 
 }

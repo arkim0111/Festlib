@@ -20,5 +20,7 @@ public class Festival {
     private String FESTA_TICKET_DATE;
     private String FESTA_TICKET_ADDR;
 
+    private Integer FESTA_LEVEL;
+
 
 }
