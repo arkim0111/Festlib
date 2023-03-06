@@ -43,8 +43,6 @@ public class BoardServiceTest {
         board.setBOARD_FESTA_ID("sjf");
         board.setBOARD_TITLE("제목1");
         board.setBOARD_CONTENT("내용1");
-        board.setBOARD_DATE(LocalDate.now());
-        board.setBOARD_IDX(1L);
 
         //when
         boardService.insertBoard(board);
