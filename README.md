@@ -8,3 +8,7 @@ https://docs.google.com/spreadsheets/d/1jLAc9yku93ql7Ne_1eaW0-Etps4cBRsvG5u8xCoX
 
 ### 3. 프로젝트 흐름도
 https://docs.google.com/spreadsheets/d/1DdKgP3hpnzV-ZsBkStd6a-I0E-lVfiviuVGDwv9DhKg/edit#gid=0
+
+### 📝 ERD
+
+![Untitled](https://user-images.githubusercontent.com/78268037/223606759-ec153fc3-7833-4b45-9fe6-080d10f88962.png)
