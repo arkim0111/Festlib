@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.festlib.repository.MemberRepository">
+    <select id="selectOneMem" parameterType="String" resultType="com.study.festlib.domain.Member">
+        SELECT *
+        FROM MEMBER
+        WHERE MEM_ID = #{MEM_ID}
+    </select>
+
+    <insert id="insertOneMem" parameterType="com.study.festlib.domain.Member">
+        INSERT INTO MEMBER
+        (MEM_LEVEL, MEM_IDX, MEM_ID, MEM_PW, MEM_NAME, MEM_EMAIL, MEM_PHONE)
+        VALUES
+        (#{MEM_LEVEL}, MEM_IDX_SEQ.NEXTVAL, #{MEM_ID}, #{MEM_PW}, #{MEM_NAME}, #{MEM_EMAIL}, #{MEM_PHONE})
+    </insert>
+
+    <update id="updateOneMem" parameterType="com.study.festlib.domain.Member">
+        UPDATE MEMBER
+        SET
+        MEM_PW = #{MEM_PW}, MEM_NAME = #{MEM_NAME}, MEM_PHONE = #{MEM_PHONE}
+        WHERE MEM_ID = #{MEM_ID}
+    </update>
+
+    <update id="deleteOneMem" parameterType="Integer">
+        UPDATE MEMBER
+        SET
+        MEM_LEVEL = 3
+        MEM_ID = #{MEM_ID}
+    </update>
+
+    <select id="selectMemList"  resultType="com.study.festlib.domain.Member">
+        SELECT *
+        FROM MEMBER
+    </select>
+</mapper>
