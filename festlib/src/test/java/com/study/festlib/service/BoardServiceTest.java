@@ -23,8 +23,6 @@ public class BoardServiceTest {
 
     @BeforeEach
     public void 초기셋팅() {
-
-
     }
 
     @AfterEach

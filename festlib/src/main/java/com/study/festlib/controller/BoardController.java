@@ -18,16 +18,16 @@ public class BoardController {
         this.boardService = boardService;
     }
 
-    /*
     @GetMapping("/{fno}/board/writeForm") // 게시글 작성 폼
     public String putForm(@PathVariable("fno") String fno) {
         Board board = new Board();
-        board.setBoard_festa_id(fno);
+        board.setBOARD_FESTA_ID(fno);
         return "board/putBoardForm";
-    }*/
+    }
 
     @PostMapping("/{fno}/board/put") // 게시글 작성 기능
     public ResponseEntity putBoard(@PathVariable("fno") String fno, @RequestBody Board board) throws Exception {
+        board.setBOARD_FESTA_ID(fno);
         boardService.insertBoard(board);
         return ResponseEntity.ok(board);
     }
