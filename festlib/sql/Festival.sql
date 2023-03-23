@@ -8,5 +8,5 @@ CREATE TABLE FESTIVAL (
         FESTA_POST_IMG VARCHAR2(1000), -- 페스티벌 포스터 사진
         FESTA_SEAT_IMG VARCHAR2(1000), -- 페스티벌 좌석배치도 사진
         FESTA_TICKET_DATE VARCHAR2(20), -- 페스티벌 티켓팅 날짜
-        FESTA_TICKET_ADDR VARCHAR2(1000), -- 페스티벌 티켓팅 홈페이지
+        FESTA_TICKET_ADDR VARCHAR2(1000) -- 페스티벌 티켓팅 홈페이지
 );
