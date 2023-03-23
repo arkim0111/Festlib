@@ -3,7 +3,6 @@ package com.study.festlib.domain;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Data
 @NoArgsConstructor

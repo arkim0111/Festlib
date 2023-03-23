@@ -26,10 +26,14 @@ public class BoardController {
     }
 
     @PostMapping("/{fno}/board/put") // 게시글 작성 기능
-    public ResponseEntity putBoard(@PathVariable("fno") String fno, @RequestBody Board board) throws Exception {
+    public String putBoard(@PathVariable("fno") String fno, @RequestBody Board board) throws Exception {
         board.setBOARD_FESTA_ID(fno);
+        board.setBOARD_TITLE("TITLE");
+        board.setBOARD_MEM_ID("ADMIN");
+        board.setBOARD_CONTENT("CONTENT");
         boardService.insertBoard(board);
-        return ResponseEntity.ok(board);
+        return "board : " + board;
+        // *** BOARD 에 들어가는 것은 확인. 하지만 postman에서는 전송이 되지 않는가,,,
     }
 
     @GetMapping("/{fno}/board/{bno}") // 게시글 상세 보기

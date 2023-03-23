@@ -44,7 +44,7 @@ public class BoardServiceTest {
 
         //when
         boardService.insertBoard(board);
-        log.info("test : " + board.getBOARD_MEM_ID() + "게시글 등록 완료");
+        log.info("test : " + board.getBOARD_MEM_ID() + " 게시글 등록 완료");
 
         // then
         assertThat(boardService.getCountBoard()).isEqualTo(1);
