@@ -1,3 +1,4 @@
+/*
 package com.study.festlib.service;
 
 import com.study.festlib.domain.Festival;
@@ -20,8 +21,32 @@ public class FestService{
     }
 
 
-    //페스티벌 정보 insert
+    //페스티벌 등록 요청 insert
     public void requestFest(Festival festival){
         festRepository.insertFestival(festival);
     }
+
+    //관리자
+    //등록된 페스티벌 리스트 select
+    public List<Festival> festList(){
+        List<Festival> festivalList = festRepository.selectFestList();
+        return festivalList;
+    }
+
+    //등록요청받은 페스티벌 리스트
+    public List<Festival> requestFestList(){
+        List<Festival> festivalList = festRepository.selectReqFestList();
+        return festivalList;
+    }
+
+    //페스티벌 정보 수정
+    public void festivalModify(Festival festival){
+        festRepository.updateFestival(festival);
+    }
+
+    //페스티벌 등록
+    public void festivalRegister(String fest_id){
+        festRepository.updateFestivalReg(fest_id);
+    }
 }
+*/

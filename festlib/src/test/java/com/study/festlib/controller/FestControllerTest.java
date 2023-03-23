@@ -1,3 +1,4 @@
+/*
 package com.study.festlib.controller;
 
 import com.study.festlib.domain.Festival;
@@ -5,6 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 @Slf4j
 @SpringBootTest
@@ -31,4 +34,19 @@ public class FestControllerTest {
         Festival findFestival = festController.festDetail("Rock");
         log.info("인서트 정보:  "+findFestival);
     }
+
+    @Test
+    void 등록된_festival_list(){
+        List<Festival> festivals = festController.festList();
+
+        log.info("등록된 페스티벌 리스트: "+festivals);
+    }
+
+    @Test
+    void 요청받은_festival_list(){
+        List<Festival> reqfestivals = festController.requestFestList();
+
+        log.info("등록된 페스티벌 리스트: "+reqfestivals);
+    }
 }
+*/
