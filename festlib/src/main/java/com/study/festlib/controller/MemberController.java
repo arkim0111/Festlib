@@ -5,10 +5,7 @@ import com.study.festlib.service.FestService;
 import com.study.festlib.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,7 +31,7 @@ public class MemberController {
 
     //회원가입 성공
     @PostMapping(value = "/join")
-    public void join(Member member) throws Exception {
+    public void join(@RequestBody Member member) throws Exception {
         memberService.insertOneMem(member);
     }
 
@@ -43,7 +40,7 @@ public class MemberController {
     //마이페이지
     //회원정보수정
     @PostMapping(value = "/mypage/memModify")
-    public void memModify(Member member) throws Exception{
+    public void memModify(@RequestBody Member member) throws Exception{
         memberService.memModify(member);
     }
 
