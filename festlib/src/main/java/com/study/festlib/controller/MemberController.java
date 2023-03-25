@@ -33,8 +33,8 @@ public class MemberController {
     }
 
     //회원가입 성공
-    @PostMapping(value = "/joinSuccess")
-    public void joinSuccess(Member member) throws Exception {
+    @PostMapping(value = "/join")
+    public void join(Member member) throws Exception {
         memberService.insertOneMem(member);
     }
 
