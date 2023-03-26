@@ -8,7 +8,11 @@ import java.util.List;
 @Mapper
 public interface MemberRepository {
 
-    public Member selectOneMem(String MEM_ID);
+    //회원정보 by ID
+    public Member selectOneMembyID(String MEM_ID);
+
+    //회원정보 by IDX
+    public Member selectOneMem(Integer MEM_IDX);
 
     //회원정보 insert
     public void insertOneMem(Member member);

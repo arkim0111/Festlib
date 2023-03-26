@@ -55,7 +55,7 @@ public class FestController {
 
     //페스티벌 등록 요청 수락
     @ResponseBody
-    @PutMapping(value = "/fest/{fno}/register")
+    @PostMapping(value = "/fest/{fno}/register")
     public void festivalRegister(@PathVariable("fno") String festa_id){
         festService.festivalRegister(festa_id);
     }

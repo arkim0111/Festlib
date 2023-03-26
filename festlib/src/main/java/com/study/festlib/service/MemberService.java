@@ -13,9 +13,14 @@ public class MemberService {
     @Autowired
     MemberRepository memberRepository;
 
-    //회원정보 select
-    public Member selectOneMem(String MEM_ID) throws Exception{
-        return memberRepository.selectOneMem(MEM_ID);
+    //회원정보 select by id
+    public Member selectOneMembyID(String MEM_ID) throws Exception{
+        return memberRepository.selectOneMembyID(MEM_ID);
+    }
+
+    //회원정보 select by idx
+    public Member selectOneMem(Integer MEM_IDX) throws Exception{
+        return memberRepository.selectOneMem(MEM_IDX);
     }
 
     //회원정보 insert
@@ -24,7 +29,13 @@ public class MemberService {
     }
 
     //회원수정 update
-    public void memModify(Member member) throws Exception{
+    public void memModify(Integer mem_idx, Member updatemember) throws Exception{
+
+        Member member = memberRepository.selectOneMem(mem_idx);
+
+        member.setMEM_PW(updatemember.getMEM_PW());
+        member.setMEM_PHONE(updatemember.getMEM_PHONE());
+
         memberRepository.updateOneMem(member);
     }
 
