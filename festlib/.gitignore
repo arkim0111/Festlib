@@ -9,3 +9,4 @@ gen
 application.properties
 build.gradle
 logback.xml
+vcs.xml

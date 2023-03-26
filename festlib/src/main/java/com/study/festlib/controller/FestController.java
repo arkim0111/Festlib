@@ -18,15 +18,15 @@ public class FestController {
 
     //상세 페이지
     @GetMapping(value = "/fest/{fno}")
-    public Festival festDetail(@PathVariable("fno") String fno){
-        Festival festival = festService.selectOneFest(fno);
+    public Festival festDetail(@PathVariable("fno") String festa_id){
+        Festival festival = festService.selectOneFest(festa_id);
 
         return festival;
     }
 
     //페스티벌 등록 요청
     @PostMapping(value="/fest/request")
-    public void requestFest (Festival festival){
+    public void requestFest (@RequestBody Festival festival){
         festService.requestFest(festival);
     }
 
@@ -48,15 +48,15 @@ public class FestController {
     }
 
     //페스티벌 수정
-    @PostMapping(value = "/fest/{fno}/modify")
-    public void festivalModify(Festival festival){
-        festService.festivalModify(festival);
+    @PutMapping(value = "/fest/{fno}/modify")
+    public void festivalModify(@PathVariable("fno") String festa_id, @RequestBody Festival festival){
+        festService.festivalModify(festa_id, festival);
     }
 
     //페스티벌 등록 요청 수락
     @ResponseBody
     @PostMapping(value = "/fest/{fno}/register")
-    public void festivalRegister(@PathVariable("fno") String fno){
-        festService.festivalRegister(fno);
+    public void festivalRegister(@PathVariable("fno") String festa_id){
+        festService.festivalRegister(festa_id);
     }
 }

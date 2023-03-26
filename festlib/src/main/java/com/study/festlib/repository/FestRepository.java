@@ -16,6 +16,15 @@ public interface FestRepository {
 
     //관리자
     //모든 페스티벌 리스트
-    public List<Festival> selectFestivals();
+    public List<Festival> selectFestList();
+
+    //등록요청받은 페스티벌 리스트
+    public List<Festival> selectReqFestList();
+
+    //페스티벌 정보 수정
+    public void updateFestival(Festival festival);
+
+    //페스티벌 등록
+    public void updateFestivalReg(String fest_id);
 
 }
