@@ -1,3 +1,4 @@
+/*
 package com.study.festlib.service;
 
 import com.study.festlib.domain.Festival;
@@ -58,3 +59,4 @@ public class FestService{
         festRepository.updateFestivalReg(festa_id);
     }
 }
+*/

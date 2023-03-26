@@ -1,3 +1,4 @@
+/*
 package com.study.festlib.controller;
 
 import com.study.festlib.domain.Festival;
@@ -60,3 +61,4 @@ public class FestController {
         festService.festivalRegister(festa_id);
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package com.study.festlib.controller;
 
 import com.study.festlib.domain.Festival;
@@ -48,3 +49,4 @@ public class FestControllerTest {
         log.info("등록된 페스티벌 리스트: "+reqfestivals);
     }
 }
+*/

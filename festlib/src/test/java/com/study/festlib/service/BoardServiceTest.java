@@ -23,8 +23,6 @@ public class BoardServiceTest {
 
     @BeforeEach
     public void 초기셋팅() {
-
-
     }
 
     @AfterEach
@@ -43,12 +41,10 @@ public class BoardServiceTest {
         board.setBOARD_FESTA_ID("sjf");
         board.setBOARD_TITLE("제목1");
         board.setBOARD_CONTENT("내용1");
-        board.setBOARD_DATE(LocalDate.now());
-        board.setBOARD_IDX(1L);
 
         //when
         boardService.insertBoard(board);
-        log.info("test : " + board.getBOARD_MEM_ID() + "게시글 등록 완료");
+        log.info("test : " + board.getBOARD_MEM_ID() + " 게시글 등록 완료");
 
         // then
         assertThat(boardService.getCountBoard()).isEqualTo(1);
