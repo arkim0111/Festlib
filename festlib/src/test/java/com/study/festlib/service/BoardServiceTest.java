@@ -65,4 +65,26 @@ public class BoardServiceTest {
         // then
         assertThat(boardService.getCountBoard()).isEqualTo(1);
     }
+
+    @Test
+    @DisplayName("게시글 수정하기")
+    void 게시글수정() throws Exception {
+        // given
+        Board board = new Board();
+        // board_idx, date는 자동 생성
+        board.setBOARD_MEM_ID("mem1");
+        board.setBOARD_FESTA_ID("sjf");
+        board.setBOARD_TITLE("제목1");
+        board.setBOARD_CONTENT("내용1");
+
+        //when
+        boardService.insertBoard(board);
+        log.info("test 1 : " + board.getBOARD_MEM_ID() + " 게시글 등록 완료");
+        log.info("test 2 : " + "fno = sjf, bno=14인 게시글수정 " + boardService.updateOneBoard("sjf", 14L));
+
+        // then
+        assertThat(boardService.getCountBoard()).isEqualTo(1);
+    }
+
+
 }

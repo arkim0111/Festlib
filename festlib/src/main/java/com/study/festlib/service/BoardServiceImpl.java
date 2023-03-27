@@ -40,4 +40,19 @@ public class BoardServiceImpl implements BoardService{
     public List<Board> selectBoardList(String fno) {
         return boardRepository.getFestBoardList(fno);
     }
+
+    @Override
+    public Board updateOneBoard(String fno, Long bno) {
+        return boardRepository.updateOneBoard(fno, bno);
+    }
+
+    @Override
+    public List<Board> selectAllBoardList() {
+        return boardRepository.getAllBoardList();
+    }
+
+    @Override
+    public List<Board> selectMyBoard(String id) {
+        return boardRepository.getMyBoard(id);
+    }
 }
