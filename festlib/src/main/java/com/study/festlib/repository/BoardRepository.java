@@ -12,4 +12,5 @@ public interface BoardRepository {
     Board selectOneBoard(String fno, String bno)  ; // 게시글 상세 보기
     int deleteAllBoard() ; // 전체 게시글 리스트 삭제
     int getCountBoard() ; // 전체 게시글 개수 조회
+    List<Board> getFestBoardList(String fno); // 게시글 리스트 조회
 }

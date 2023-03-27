@@ -35,4 +35,9 @@ public class BoardServiceImpl implements BoardService{
     public int getCountBoard() {
         return boardRepository.getCountBoard();
     }
+
+    @Override
+    public List<Board> selectBoardList(String fno) {
+        return boardRepository.getFestBoardList(fno);
+    }
 }

@@ -16,4 +16,7 @@ public interface BoardService {
 
     // 전체 게시글 개수 조회
     int getCountBoard() ;
+
+    // 전체 게시글 리스트 보기
+    List<Board> selectBoardList(String fno);
 }

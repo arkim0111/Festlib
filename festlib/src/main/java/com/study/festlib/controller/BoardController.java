@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/Festlib/fest")
@@ -18,36 +20,25 @@ public class BoardController {
         this.boardService = boardService;
     }
 
-    @GetMapping("/{fno}/board/writeForm") // 게시글 작성 폼
-    public String putForm(@PathVariable("fno") String fno) {
-        Board board = new Board();
-        board.setBOARD_FESTA_ID(fno);
-        return "board/putBoardForm";
-    }
-
     @PostMapping("/{fno}/board/put") // 게시글 작성 기능
-    public String putBoard(@PathVariable("fno") String fno, @RequestBody Board board) throws Exception {
+    public void putBoard(@PathVariable("fno") String fno, @RequestBody Board board) throws Exception {
         board.setBOARD_FESTA_ID(fno);
-        board.setBOARD_TITLE("TITLE");
-        board.setBOARD_MEM_ID("ADMIN");
-        board.setBOARD_CONTENT("CONTENT");
         boardService.insertBoard(board);
-        return "board : " + board;
         // *** BOARD 에 들어가는 것은 확인. 하지만 postman에서는 전송이 되지 않는가,,,
     }
 
     @GetMapping("/{fno}/board/{bno}") // 게시글 상세 보기
-    public Board detailBoard(@PathVariable("fno") String fno, @PathVariable("bno") String board_idx) throws Exception {
-        return boardService.selectOneBoard(fno, board_idx);
+    public Board detailBoard(@PathVariable("fno") String fno, @PathVariable("bno") String bno) throws Exception {
+        return boardService.selectOneBoard(fno, bno);
     }
 
-   /* @GetMapping("/{fno}/board/board") // 게시글 리스트 조회
-    public ResponseEntity<Board> getBoardList(@PathVariable("fno") String fno, Board board) {
-        return new ResponseEntity<>(board, HttpStatus.OK);
+    @GetMapping("/{fno}/board") // 게시글 리스트 조회
+    public List<Board> getBoardList(@PathVariable("fno") String fno) {
+        return boardService.selectBoardList(fno);
     }
 
 
-    public String Board(Model model) {
+    /*  public String Board(Model model) {
         List<Board> list = boardService.getFestBoardList();
         model.addAttribute("boardList", list);
         return "board/board";
