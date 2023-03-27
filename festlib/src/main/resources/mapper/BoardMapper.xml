@@ -70,7 +70,6 @@
             BOARD
         WHERE
             BOARD_IDX = #{BOARD_IDX}
-
     </select>
 
     <!-- (관리자 페이지) 모든 게시글 리스트 조회  -->

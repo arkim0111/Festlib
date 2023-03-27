@@ -1,4 +1,3 @@
-/*
 package com.study.festlib.service;
 
 import com.study.festlib.domain.Festival;
@@ -40,13 +39,23 @@ public class FestService{
     }
 
     //페스티벌 정보 수정
-    public void festivalModify(Festival festival){
+    public void festivalModify(String festa_id, Festival updatefestival){
+        Festival festival = festRepository.selectOneFest(festa_id);
+
+        festival.setFESTA_YEAR(updatefestival.getFESTA_YEAR());
+        festival.setFESTA_NAME(updatefestival.getFESTA_NAME());
+        festival.setFESTA_ADDR(updatefestival.getFESTA_ADDR());
+        festival.setFESTA_DATE(updatefestival.getFESTA_DATE());
+        festival.setFESTA_CELEB(updatefestival.getFESTA_CELEB());
+        festival.setFESTA_TICKET_DATE(updatefestival.getFESTA_TICKET_DATE());
+        festival.setFESTA_TICKET_ADDR(updatefestival.getFESTA_TICKET_ADDR());
+
         festRepository.updateFestival(festival);
     }
 
     //페스티벌 등록
-    public void festivalRegister(String fest_id){
-        festRepository.updateFestivalReg(fest_id);
+    public void festivalRegister(String festa_id){
+        festRepository.updateFestivalReg(festa_id);
     }
 }
-*/
+
