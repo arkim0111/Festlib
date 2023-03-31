@@ -32,11 +32,11 @@
             )
         VALUES
             (
+            #{REPLY_BOARD_IDX},
             REPLY_IDX_SEQ.NEXTVAL,
-            #{REPLY_IDX},
             #{REPLY_MEM_ID},
             #{REPLY_CONTENT},
-            #{REPLY_DATE},
+            SYSDATE,
             #{REPLY_FESTA_ID}
             )
     </insert>
