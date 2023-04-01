@@ -16,6 +16,7 @@ public class Reply {
     private String REPLY_MEM_ID; // 댓글 작성자 ID
     private String REPLY_CONTENT; // 댓글 내용
     private Date REPLY_DATE; // 댓글 작성 날짜
+    private String REPLY_FESTA_ID; // 댓글 페스티벌 ID
 
 
 }
