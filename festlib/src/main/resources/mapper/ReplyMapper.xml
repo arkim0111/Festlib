@@ -19,7 +19,7 @@
 
     <!-- 댓글 작성 기능  -->
     <!-- 게시글 idx에 맞는 댓글 작성 기능 -->
-    <insert id="insertReply" parameterType="hashmap">
+    <insert id="insertOneReply" parameterType="hashmap">
         INSERT INTO
         REPLY
             (
@@ -32,24 +32,24 @@
             )
         VALUES
             (
+            #{REPLY_BOARD_IDX},
             REPLY_IDX_SEQ.NEXTVAL,
-            #{REPLY_IDX},
             #{REPLY_MEM_ID},
             #{REPLY_CONTENT},
-            #{REPLY_DATE},
+            SYSDATE,
             #{REPLY_FESTA_ID}
             )
     </insert>
 
     <!-- 댓글 삭제 기능  -->
     <!-- 댓글 idx에 맞는 댓글 삭제 기능 -->
-    <delete id="deleteReply" parameterType="hashmap">
+    <delete id="deleteOneReply" parameterType="hashmap">
         DELETE FROM
             REPLY
         WHERE
             REPLY_IDX = #{REPLY_IDX}
         AND
-            REPLY_FESTA_ID = #{REPLY_FESTA_ID}
+            REPLY_BOARD_IDX = #{REPLY_BOARD_IDX}
     </delete>
 
     <!-- 댓글 수정 기능  -->
@@ -61,12 +61,13 @@
         WHERE
             REPLY_BOARD_IDX = #{REPLY_BOARD_IDX}
         AND
-            REPLY_MEM_ID = #{REPLY_MEM_ID}
+            REPLY_IDX = #{REPLY_IDX}
         AND
             REPLY_FESTA_ID = #{REPLY_FESTA_ID}
+
     </update>
 
-    <!-- (마이 페이지) 내가 쓴 게시글 조회  -->
+    <!-- (마이 페이지) 내가 쓴 댓글 조회  -->
     <select id="getMyReply" resultType="com.study.festlib.domain.Reply">
         SELECT
             REPLY_BOARD_IDX, REPLY_IDX, REPLY_MEM_ID, REPLY_CONTENT, REPLY_DATE, REPLY_FESTA_ID
