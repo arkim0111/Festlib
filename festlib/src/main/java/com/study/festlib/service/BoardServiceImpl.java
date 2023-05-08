@@ -22,7 +22,7 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
-    public Board selectOneBoard(String fno, String bno) {
+    public Board selectOneBoard(String fno, Long bno) {
         return boardRepository.selectOneBoard(fno, bno);
     }
 

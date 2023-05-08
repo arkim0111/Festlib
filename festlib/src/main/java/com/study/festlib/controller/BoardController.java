@@ -28,7 +28,7 @@ public class BoardController {
     }
 
     @GetMapping("/fest/{fno}/board/{bno}") // 게시글 상세 보기
-    public Board detailBoard(@PathVariable("fno") String fno, @PathVariable("bno") String bno) throws Exception {
+    public Board detailBoard(@PathVariable("fno") String fno, @PathVariable("bno") Long bno) throws Exception {
         return boardService.selectOneBoard(fno, bno);
     }
 
