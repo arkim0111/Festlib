@@ -19,7 +19,7 @@
 
     <!-- 댓글 작성 기능  -->
     <!-- 게시글 idx에 맞는 댓글 작성 기능 -->
-    <insert id="insertOneReply" parameterType="hashmap">
+    <insert id="insertOneReply" parameterType="com.study.festlib.domain.Reply">
         INSERT INTO
         REPLY
             (

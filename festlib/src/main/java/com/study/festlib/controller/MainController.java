@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MainController {
 
-    @GetMapping("/")
+    @GetMapping("/Festlib/")
     public String main() {
         return "main";
     }

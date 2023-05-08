@@ -17,7 +17,7 @@ public class ReplyController {
         this.replyService = replyService;
     }
 
-    @GetMapping("/fest/{fno}/board/{bno}") // 페스티벌의 댓글 리스트 조회
+    @GetMapping("/fest/{fno}/board/{bno}/reply") // 페스티벌의 댓글 리스트 조회
     public List<Reply> replyList(@PathVariable("bno") Long bno, @PathVariable("fno") String fno) {
         return replyService.replyList(bno, fno);
     }
